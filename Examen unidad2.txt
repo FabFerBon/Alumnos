@@ -1,6 +1,0 @@
-DELETE FROM CASA
-WHERE
-        ID = :ID
-    AND NOMBRE = :NOMBRE
-    AND EDAD = :EDAD
-    AND SEXO = :SEXO;
