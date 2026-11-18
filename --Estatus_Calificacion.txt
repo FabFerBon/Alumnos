@@ -1,0 +1,50 @@
+--Estatus_Calificacion
+-- Creamos el procedimiento
+CREATE OR REPLACE PROCEDURE DatosAlumno AS
+
+    -- Declaramos las variables
+    nombre VARCHAR2(30);
+    edad NUMBER;
+    calificacion NUMBER(5,2);
+    resultado VARCHAR2(30);
+
+BEGIN
+
+  -- Asignamos valores a las variables
+nombre := 'Fabricio';
+edad := 20;
+calificacion := 85;
+
+    -- Comprobamos la calificacion del alumno
+    IF calificacion >= 90 AND calificacion <= 100 THEN
+
+        resultado := 'Excelente';
+
+    ELSIF calificacion >= 70 AND calificacion < 90 THEN
+
+        resultado := 'Aprobado';
+
+    ELSIF calificacion >= 0 AND calificacion < 70 THEN
+
+        resultado := 'Reprobado';
+
+    ELSE
+
+        resultado := 'Calificacion no valida';
+
+    END IF;
+
+    -- Mostramos los datos del alumno
+    DBMS_OUTPUT.PUT_LINE('Nombre: ' || nombre);
+    DBMS_OUTPUT.PUT_LINE('Edad: ' || edad);
+    DBMS_OUTPUT.PUT_LINE('Calificacion: ' || calificacion);
+    DBMS_OUTPUT.PUT_LINE('Resultado: ' || resultado);
+
+END;
+/
+
+-- Ejecutamos el procedimiento
+BEGIN
+    DatosAlumno;
+END;
+/
