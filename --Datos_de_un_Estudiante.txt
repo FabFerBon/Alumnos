@@ -1,0 +1,32 @@
+--Datos de un Estudiante
+-- Creamos el procedimiento
+CREATE OR REPLACE PROCEDURE DatosEstudiante AS
+
+    -- Declaramos las variables
+    nombre VARCHAR2(30);
+    edad NUMBER;
+    carrera VARCHAR2(50);
+    semestre NUMBER;
+
+BEGIN
+
+    -- Asignamos valores a las variables
+    nombre := 'Fabricio';
+    edad := 20;
+    carrera := 'TIC';
+    semestre := 5;
+
+    -- Mostramos los datos del estudiante
+    DBMS_OUTPUT.PUT_LINE('Nombre: ' || nombre);
+    DBMS_OUTPUT.PUT_LINE('Edad: ' || edad);
+    DBMS_OUTPUT.PUT_LINE('Carrera: ' || carrera);
+    DBMS_OUTPUT.PUT_LINE('Semestre: ' || semestre);
+
+END;
+/
+
+-- Ejecutamos el procedimiento
+BEGIN
+    DatosEstudiante;
+END;
+/

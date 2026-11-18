@@ -1,0 +1,56 @@
+--Calculadora
+-- Creamos el procedimiento
+CREATE OR REPLACE PROCEDURE Calculadora AS
+
+    -- Declaramos las variables
+    numero1 NUMBER;
+    numero2 NUMBER;
+    opcion NUMBER;
+    resultado NUMBER;
+
+BEGIN
+
+    -- Solicitamos los datos al usuario
+    numero1 := &numero1;
+    numero2 := &numero2;
+    opcion := &opcion;
+
+    -- Comprobamos la operacion elegida
+    IF opcion = 1 THEN
+
+        resultado := numero1 + numero2;
+        DBMS_OUTPUT.PUT_LINE('Resultado de la suma: ' || resultado);
+
+    ELSIF opcion = 2 THEN
+
+        resultado := numero1 - numero2;
+        DBMS_OUTPUT.PUT_LINE('Resultado de la resta: ' || resultado);
+
+    ELSIF opcion = 3 THEN
+
+        resultado := numero1 * numero2;
+        DBMS_OUTPUT.PUT_LINE('Resultado de la multiplicacion: ' || resultado);
+
+    ELSIF opcion = 4 THEN
+
+        IF numero2 <> 0 THEN
+            resultado := numero1 / numero2;
+            DBMS_OUTPUT.PUT_LINE('Resultado de la division: ' || resultado);
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('No se puede dividir entre cero');
+        END IF;
+
+    ELSE
+
+        DBMS_OUTPUT.PUT_LINE('Opcion no valida');
+
+    END IF;
+
+END;
+/
+
+-- Ejecutamos el procedimiento
+BEGIN
+    Calculadora;
+END;
+/
